@@ -1,20 +1,171 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-back-button slot="start">
+      </ion-back-button>
+    </ion-buttons>
+
     <ion-title>
-      Blank
+      Home --{{gv.username}}
     </ion-title>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card style="text-align: center;padding: 20px 0;">
+    <ion-button (click)="onTemplateClick()" expand="round" size="small" color="success">Template Form </ion-button><br>
+    <ion-button (click)="onReactiveClick()" color="secondary" expand="round" size="small" fill="outline">Reactive Form </ion-button>
+  </ion-card>
+  <div class="container">
+    <div >
+      <form #templatedrivenForm="ngForm">
+        <div class="form-group">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+          <!-- <label for="name">Email</label> -->
+          <ion-input placeholder="Email" [clearInput]="true" value="name" type="text" [ngModel]="formemail" class="form-control" id="" required name="formemail"  #formemail="ngModel"></ion-input>
+
+        </div>
+        <!-- Password input area -->
+        <div class="form-group">
+          <!-- <label for="exampleInputPassword1">Password</label> -->
+          <ion-input placeholder="password" clear #password="ngModel" [ngModel]="password" name="password" type="password" class="form-control" id="" placeholder="Password" required >
+            </ion-input>
+        </div>
+      
+
+        <ion-button type="submit" class="btn btn-success" [disabled]="!templatedrivenForm.form.valid">Submit</ion-button>
+      </form>
+    </div>
   </div>
+
+
+
+
+  <div style="color: red;" >
+   {{today}}----CDAC---{{firstname}} 
+  </div>
+
+  <ion-list>
+    <ion-card>
+      <ion-item lines="none">
+        <ion-label position="floating">UserNAME</ion-label>
+        <ion-input type="text" [(ngModel)]="username" placeholder="name"></ion-input> 
+      </ion-item>
+      <ion-button (click)="dataget()">Save</ion-button>
+    </ion-card>
+   
+  </ion-list>
+ 
+
+
+  <div style="height: 20px;"></div>
+
+
+  <ion-card>
+    <p> {{firstname}}</p>
+    <p> {{firstname}}</p>
+    <p> {{firstname}}</p><p> {{firstname}}</p>
+  </ion-card>
+
+
+
+  <ion-card *ngFor="let ahgsh of testdata" (click)="cardClick(ahgsh)">
+    <ion-item>
+      <ion-avatar>
+        <img src="./../../assets/icon/favicon.png">
+      </ion-avatar>
+      <ion-label class="demoMonti">
+        <p> {{ahgsh.id}}</p>
+        <ion-text *ngIf="ahgsh.hidetext">{{ahgsh.name}}</ion-text>
+        <h6>{{ahgsh.emp}}</h6>
+      </ion-label>
+    </ion-item>
+  </ion-card>
+
+
+
+
+
+  <ion-grid>
+    <ion-row>
+      <div>
+
+      </div>
+      <ion-col size-md="4" size-lg="3" size="12" (click)="onHomeRoute()">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title style="font-weight: 900;">Card {{name}} -{{firstname}}</ion-card-title>
+            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            {{firstname}}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size-md="4" size-lg="3" size-sm="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Card Ashish_1</ion-card-title>
+            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            Here's a small text description for the card content. Nothing more, nothing less.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size-md="4" size-lg="3" size-sm="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Card Ashish+2</ion-card-title>
+            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            Here's a small text description for the card content. Nothing more, nothing less.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size-md="4" size-lg="3" size-sm="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Card Ashish+3</ion-card-title>
+            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            Here's a small text description for the card content. Nothing more, nothing less.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size-md="4" size-lg="3" size-sm="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Card Ashish+3</ion-card-title>
+            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            Here's a small text description for the card content. Nothing more, nothing less.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size-md="4" size-lg="3" size-sm="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Card Ashish+3</ion-card-title>
+            <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            Here's a small text description for the card content. Nothing more, nothing less.
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>

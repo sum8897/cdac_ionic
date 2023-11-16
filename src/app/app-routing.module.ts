@@ -11,6 +11,19 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'profile',
+    
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'template',
+    loadChildren: () => import('./template-form/template-form.module').then( m => m.TemplateFormPageModule)
+  },
+  {
+    path: 'reactive-form',
+    loadChildren: () => import('./reactive-form/reactive-form.module').then( m => m.ReactiveFormPageModule)
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,96 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button icon="caret-back" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Reactive Form</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <form class="form" [formGroup]="reactiveForm" (ngSubmit)="onReactiveFormSubmited()">
+      <ion-card>
+        <ion-item>
+          <ion-input type="text" formControlName="firstname" placeholder="First Name" required minlength="5"
+            maxlength="10"></ion-input>
+        </ion-item>
+          <span *ngIf="reactiveForm.get('firstname').errors?.['required'] && reactiveForm.get('firstname').touched">
+              *First Name is required
+          </span>
+          <span *ngIf="reactiveForm.get('firstname').errors?.['noSpaceAllowed'] && reactiveForm.get('firstname').touched">
+            *No space Allowed in first Name
+        </span>
+      </ion-card>
+      <ion-card>
+        <ion-item>
+          <ion-input type="tel" formControlName="mobile" placeholder="Mobile"></ion-input>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+        <ion-item>
+          <ion-input type="password" formControlName="password" placeholder="Password" required></ion-input>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+        <ion-item>
+          <ion-input type="email" formControlName="email" placeholder="Gmail/Email" required></ion-input>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+        <ion-item>
+          <ion-select formControlName="gender" label="Select Gender" label-placement="fixed"
+            placeholder="Select Gender">
+            <ion-select-option value="male">Male</ion-select-option>
+            <ion-select-option value="female">Female</ion-select-option>
+            <ion-select-option value="none">None</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+        <ion-label style="padding-left: 20px;color: black;">Select Status</ion-label>
+        <ion-item>
+          <ion-radio-group value="yes" formControlName="status">
+            <ion-radio value="yes" labelPlacement="yes">Yes</ion-radio>
+            <ion-radio value="no" labelPlacement="no">No</ion-radio>
+          </ion-radio-group>
+        </ion-item>
+      </ion-card>
+      <div class="" formGroupName="address">
+        <ion-card>
+          <ion-item>
+            <ion-input type="text" formControlName="street" placeholder="street"></ion-input>
+          </ion-item>
+        </ion-card>
+        <ion-card>
+          <ion-item>
+            <ion-select formControlName="country" label="Country" label-placement="fixed" placeholder="Select Country"
+              [(ngModel)]="countrySelected">
+              <ion-select-option *ngFor="let country of countryArray"
+                [value]="country">{{country.countryName}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-card>
+        <ion-card>
+          <ion-item>
+            <ion-input type="text" formControlName="city" placeholder="city" required></ion-input>
+          </ion-item>
+          <span *ngIf="reactiveForm.get('address.city').invalid && reactiveForm.get('address.city').touched">*City name
+            is required</span>
+        </ion-card>
+        <ion-card>
+          <ion-item>
+            <ion-input type="tel" formControlName="pincode" placeholder="pincode"></ion-input>
+          </ion-item>
+        </ion-card>
+      </div>
+      <div class="form" formArrayName="skills">
+        <ion-card>
+          <ion-input type="text" *ngFor="let skill of reactiveForm.get('skills')['controls'];let i=index"
+            placeholder="add skills.." [formControlName]="i">
+          </ion-input>
+        </ion-card>
+      </div>
+      <ion-button type="submit" [disabled]="!reactiveForm.valid">Reactive Form</ion-button>
+    </form>
+  </ion-card>
+</ion-content>

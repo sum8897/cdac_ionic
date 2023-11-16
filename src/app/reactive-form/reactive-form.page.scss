@@ -1,0 +1,16 @@
+ion-input.ng-invalid{
+    border-bottom: 2px solid red;
+}
+
+// ion-input.ng-invalid.ng-touched{
+//     border-bottom: 2px solid red;
+// }
+ion-input.ng-valid{
+    border-bottom: 2px solid green;
+}
+span{
+    padding-left: 20px;
+    font-size: 10px;
+    font-style: italic;
+    color: red;
+}
