@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { TemplateFormPageRoutingModule } from './template-form-routing.module';
 
 import { TemplateFormPage } from './template-form.page';
+import { ChildComponent } from '../child/child.component';
+// import { ChildComponent } from '../child/child.component';
 
 @NgModule({
   imports: [
@@ -16,7 +18,7 @@ import { TemplateFormPage } from './template-form.page';
     IonicModule,
     TemplateFormPageRoutingModule
   ],
-  declarations: [TemplateFormPage],
+  declarations: [TemplateFormPage,ChildComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })
 export class TemplateFormPageModule { }

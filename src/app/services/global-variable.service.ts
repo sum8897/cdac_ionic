@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class GlobalVariableService {
   username:any='Monti';
-  age='';
+  age='34';
   constructor() { }
 
   userObj={

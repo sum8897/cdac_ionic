@@ -13,6 +13,17 @@ export class ReactiveFormPage implements OnInit {
   constructor() { }
   countrySelected: any = 'India';
   ngOnInit() {
+
+
+    this.reactiveForm= new FormGroup ({
+      firstname:new FormControl(null,[Validators.required,
+                                      Validators.maxLength(10),
+                                      Validators.minLength(2),
+                                      Validators.email,
+                                      Validators.pattern('')])
+    }) 
+    
+
     this.reactiveForm = new FormGroup({
       firstname: new FormControl(null, [Validators.required,
       Validators.minLength(5),
@@ -38,6 +49,11 @@ export class ReactiveFormPage implements OnInit {
         new FormControl(null),
       ])
     })
+
+   
+
+
+
     this.reactiveForm.get('firstname').valueChanges.subscribe((value) => {
       console.log(value);
     })
@@ -54,7 +70,9 @@ export class ReactiveFormPage implements OnInit {
   onReactiveFormSubmited() {
     console.log(this.reactiveForm);
   }
-
+  changeCheck(dayta:any){
+    console.log(dayta.detail.value)
+  }
 
   countryArray = [
     {

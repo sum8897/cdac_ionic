@@ -4,10 +4,25 @@
       <ion-back-button icon="caret-back" defaultHref="/home"></ion-back-button>
     </ion-buttons>
 
-    <ion-title>Template Form</ion-title>
+    <ion-title>Template Form-- {{gVariable.age}} &nbsp;&nbsp;{{gVariable?.username}}</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
+
+
+  <!--  -->
+  <ion-button (click)="onParentToChild()">send data from parent to child</ion-button>
+  <!-- <app-child [firstname]="parentMessage"></app-child> -->
+
+ 
+  <app-child [firstname2]="parentMessage1"></app-child>
+  <!-- <app-child [firstname]="parentMessage2"></app-child> -->
+  <ion-card>    
+  
+  </ion-card>
+
+
+
   <ion-card>
     <!-- (ngSubmit)="onTemplateDrivenFormSubmited()" we can access using View child decorator
   there is no need to pass any parameter
@@ -17,6 +32,9 @@ ngModel basically use for control the form
 (ngSubmit)="onTemplateDrivenFormSubmited() will be use when we dont want to pass "templateDrivenForm"
 then we have to access using @ViewChild('templateDrivenForm') form : NgForm;---
 -->
+
+
+
     <form class="form" #templateDrivenForm="ngForm" (ngSubmit)="onTemplateDrivenFormSubmited(templateDrivenForm)">
       <ion-card>
         <ion-item>
@@ -27,6 +45,10 @@ then we have to access using @ViewChild('templateDrivenForm') form : NgForm;---
         <span class="successEnter" *ngIf="userfirstname"><b>You Entered:&nbsp;</b>{{userfirstname}}</span>
       </ion-card>
       <ion-card>
+
+
+
+
         <ion-item>
           <ion-input type="tel" name="mobile" ngModel #mobile="ngModel" placeholder="Mobile" required
             mobile></ion-input>
@@ -56,6 +78,7 @@ then we have to access using @ViewChild('templateDrivenForm') form : NgForm;---
         <ion-item>
           <ion-select label="Select Gender" ngModel #gender="ngModel" required name="gender" label-placement="fixed"
             placeholder="Select Gender">
+           
             <ion-select-option value="male">Male</ion-select-option>
             <ion-select-option value="female">Female</ion-select-option>
             <ion-select-option value="none">None</ion-select-option>
@@ -75,6 +98,9 @@ then we have to access using @ViewChild('templateDrivenForm') form : NgForm;---
       </ion-card>
       <ion-button type="submit" [disabled]="!templateDrivenForm.valid">submit</ion-button>
     </form>
+
+
+    
     <form #templateDrivenForm="ngForm" (ngSubmit)="onTemplateDrivenFormSubmited(templateDrivenForm)">
 
 

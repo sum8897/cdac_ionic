@@ -11,7 +11,7 @@
     <form class="form" [formGroup]="reactiveForm" (ngSubmit)="onReactiveFormSubmited()">
       <ion-card>
         <ion-item>
-          <ion-input type="text" formControlName="firstname" placeholder="First Name" required minlength="5"
+          <ion-input (ionChange)="changeCheck($event)" type="text" formControlName="firstname" placeholder="First Name" required minlength="5"
             maxlength="10"></ion-input>
         </ion-item>
           <span *ngIf="reactiveForm.get('firstname').errors?.['required'] && reactiveForm.get('firstname').touched">
