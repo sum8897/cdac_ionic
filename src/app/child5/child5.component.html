@@ -1,0 +1,19 @@
+
+<ion-card style="border: 1px solid red;">
+  <p style="font-weight: 800;">
+    child5 works!   demo test
+    ..
+  </p>
+  <h4>
+    {{firstName}}
+  </h4>
+  <ion-card>
+    <p>child 3 using in child 5 component</p>
+    <app-child3></app-child3>
+  </ion-card>
+  
+  
+    <ion-button (click)="sendDataFromChildByClick()">send data to parent</ion-button>
+</ion-card>
+
+

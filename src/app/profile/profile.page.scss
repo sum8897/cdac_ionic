@@ -1,0 +1,10 @@
+ion-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+video, canvas {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+  }

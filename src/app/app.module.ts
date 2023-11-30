@@ -8,6 +8,10 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { GlobalVariableService } from './services/global-variable.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
+import { WebcamModule } from 'ngx-webcam';
+import { HttpClientModule } from '@angular/common/http';
+import { SharedModuleModule } from './shared-module/shared-module.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +20,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
           IonicModule.forRoot(), 
           AppRoutingModule,
           FormsModule,
-          ReactiveFormsModule],
+          ReactiveFormsModule,
+          SharedModule,
+          SharedModuleModule,
+          WebcamModule,
+          HttpClientModule
+        ],
   providers: [
              { provide: RouteReuseStrategy, 
              useClass: IonicRouteStrategy,            
@@ -24,6 +33,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
              GlobalVariableService
             ],
   bootstrap: [AppComponent],
+  exports:[],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA

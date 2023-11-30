@@ -8,6 +8,10 @@ import { TemplateFormPageRoutingModule } from './template-form-routing.module';
 
 import { TemplateFormPage } from './template-form.page';
 import { ChildComponent } from '../child/child.component';
+import { Child2Component } from '../child2/child2.component';
+
+import { Child4Component } from '../child4/child4.component';
+import { SharedModuleModule } from '../shared-module/shared-module.module';
 // import { ChildComponent } from '../child/child.component';
 
 @NgModule({
@@ -16,9 +20,17 @@ import { ChildComponent } from '../child/child.component';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    TemplateFormPageRoutingModule
+    SharedModuleModule,
+    TemplateFormPageRoutingModule,
+    
   ],
-  declarations: [TemplateFormPage,ChildComponent],
+  declarations: [TemplateFormPage,
+                 ChildComponent,
+                 Child2Component,
+                 
+                 Child4Component,
+                 ]
+                 ,
   schemas: [NO_ERRORS_SCHEMA]
 })
 export class TemplateFormPageModule { }

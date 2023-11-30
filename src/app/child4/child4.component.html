@@ -1,0 +1,14 @@
+<p>
+  child4 works!-  {{dataFromChild}}
+</p>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let data from DataArray" (click)="sendChildToParent()">
+    <ion-label>{{data}}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-button (click)="sendChildToParent()">
+    send data child to parent
+  </ion-button>
+</ion-content>

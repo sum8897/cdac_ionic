@@ -1,24 +1,23 @@
 import { NO_ERRORS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ReactiveFormPageRoutingModule } from './reactive-form-routing.module';
+import { ParentPageRoutingModule } from './parent-routing.module';
 
-import { ReactiveFormPage } from './reactive-form.page';
+import { ParentPage } from './parent.page';
 import { SharedModuleModule } from '../shared-module/shared-module.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
     IonicModule,
     SharedModuleModule,
-    ReactiveFormPageRoutingModule
+    ParentPageRoutingModule
   ],
-  declarations: [ReactiveFormPage],
+  declarations: [ParentPage],
   schemas: [NO_ERRORS_SCHEMA]
 })
-export class ReactiveFormPageModule {}
+export class ParentPageModule {}

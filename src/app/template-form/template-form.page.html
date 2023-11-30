@@ -8,14 +8,58 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
+  <!-- <ion-card>
+    <div id="app">
+      <div>
+        <video #video id="video" width="640" height="480" autoplay playsinline></video>
+      </div>
+      <div>
+        <button id="snap" (click)="capture()">Snap Photo</button>
+      </div>
+      <canvas #canvas id="canvas" width="640" height="480"></canvas>
+      <ul>
+          <li *ngFor="let c of captures">
+              <img src="{{ c }}" height="50" />
+          </li>
+      </ul>
+  </div>
+  </ion-card> -->
 
+  <app-child4 
+   (sendDataFromChild)="getDataFromChildIntoParent($event)" 
+    [dataFromChild]="parentVariableValue">
+  </app-child4>
 
+  <app-child3></app-child3>
+
+  <app-child2 [username]="parentMessage1"></app-child2>
+  <app-child2 ></app-child2>
+
+  <app-child5
+  (lastName)="dataFromChild($event)"
+  
+   [firstName]="nandini"
+
+   ></app-child5>
+   
+   <ion-card>
+  
+    <ion-list>
+      <ion-item *ngFor="let data of displayDataFromChildToParent">
+   <ion-label>
+    <p>{{data?.id}}</p>
+    <h4>{{data?.name}}</h4>
+    <span>{{data?.Skills}}</span>
+   </ion-label>
+      </ion-item>
+    </ion-list>
+   </ion-card>
   <!--  -->
   <ion-button (click)="onParentToChild()">send data from parent to child</ion-button>
-  <!-- <app-child [firstname]="parentMessage"></app-child> -->
-
+  <app-child [firstname]="parentMessage"></app-child>
  
-  <app-child [firstname2]="parentMessage1"></app-child>
+ 
+  <!-- <app-child [firstname2]="parentMessage1"></app-child> -->
   <!-- <app-child [firstname]="parentMessage2"></app-child> -->
   <ion-card>    
   
