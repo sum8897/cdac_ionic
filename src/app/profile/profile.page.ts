@@ -31,28 +31,25 @@ userDataList:any='';
   }
 
   getFakeData() {
-
     this.auth.getData().subscribe((datalistaaa) => {
       this.userDataList=datalistaaa;
       // console.log(datalistaaa);
     }, err => {
       console.log('got error');
     })
-
-
-
-    // this.auth.getData().subscribe(res => {
-    //   console.log(res)
-    // })
   }
   getFakeData1() {
 
-    this.auth.getnanData().subscribe((getNanData) => {
+    this.auth.getnanData().subscribe({
+      next: (getNanData) => {
       this.userDataList=getNanData;
       console.log((getNanData));
-    }, err => {
+    },
+     error:(e) => {
       console.log('got error');
-    })
+    }
+  });
+
   }
 singleUserList(){
   const id=2;
